@@ -1,0 +1,32 @@
+/**
+ * This commands should be emitted directly in mongosh
+ * Does not use it as a script
+ */
+
+// Examples of Important mongosh Commands
+
+// Show all databases
+show dbs;
+
+// Switch to a specific database
+use tutorialDB;
+
+// Show all collections in the current database
+show collections;
+
+// show help
+db.help()
+
+// Insert a document into a collection
+db.students.insertOne({ name: "Eve", age: 20, major: "Biology" });
+db.students.insertOne({ name: "Charles", age: 21, major: "Chemistry" });
+
+// mongosh is a ES9 REPL
+function listStudentNames() {
+  db.students.find().forEach(function (doc) {
+    print(doc.name);
+  });
+}
+
+// to exit the shell
+.exit
